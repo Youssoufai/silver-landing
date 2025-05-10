@@ -13,7 +13,7 @@ export default function GhostSKULandingPage() {
                     GhostSKU finds and fixes unprofitable products—before they sink your margins.
                 </p>
                 <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition">
-                    Join the Waitlist – It’s Free
+                    <Link href='/waitlist'>Join the Waitlist – It’s Free</Link>
                 </GhostButton>
                 <p className="mt-4 text-sm text-gray-500">
                     ⚡ No credit card. Setup in 2 minutes. Limited early access.
@@ -103,7 +103,7 @@ export default function GhostSKULandingPage() {
                 </div>
                 <div className="mt-10">
                     <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition">
-                        Claim Your Spot – Free
+                        <Link href='/waitlist'>Claim Your Spot – Free</Link>
                     </GhostButton>
                     <p className="text-sm text-gray-500 mt-2">Early bird pricing ends soon.</p>
                 </div>
