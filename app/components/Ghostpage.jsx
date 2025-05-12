@@ -3,16 +3,17 @@ import { GhostButton } from "./ui/Button";
 
 export default function GhostSKULandingPage() {
     return (
-        <main className="min-h-screen bg-white text-gray-900">
+        <main className="min-h-screen bg-white text-gray-900 font-sans">
             {/* Hero Section */}
-            <section className="py-24 px-6 text-center max-w-5xl mx-auto">
+            <section className="relative py-24 px-6 text-center max-w-5xl mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white -z-10 rounded-b-3xl shadow-md"></div>
                 <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
                     Stop Losing Money to Dead SKUs.
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-gray-700">
                     GhostSKU finds and fixes unprofitable products—before they sink your margins.
                 </p>
-                <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition">
+                <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md transition">
                     <Link href='/waitlist'>Join the Waitlist – It’s Free</Link>
                 </GhostButton>
                 <p className="mt-4 text-sm text-gray-500">
@@ -26,7 +27,7 @@ export default function GhostSKULandingPage() {
             </section>
 
             {/* Problem Section */}
-            <section className="bg-gray-50 py-16 px-6">
+            <section className="bg-gray-50 py-20 px-6">
                 <div className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl font-semibold mb-6">Every bad SKU is a silent killer.</h2>
                     <ul className="space-y-4 text-lg text-gray-700">
@@ -49,21 +50,12 @@ export default function GhostSKULandingPage() {
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto text-center">
-                    <div>
-                        <h3 className="text-xl font-semibold mb-2">1. Connect Your Store</h3>
-                        <p className="text-gray-600">Works instantly with Shopify or WooCommerce.</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold mb-2">2. Analyze + Grade</h3>
-                        <p className="text-gray-600">AI reviews every SKU: Kill, Optimize, or Keep.</p>
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-semibold mb-2">3. Take Smart Action</h3>
-                        <p className="text-gray-600">Auto-tests pricing, flags losers, emails weekly wins.</p>
-                    </div>
+                    <StepCard step="1" title="Connect Your Store" desc="Works instantly with Shopify or WooCommerce." />
+                    <StepCard step="2" title="Analyze + Grade" desc="AI reviews every SKU: Kill, Optimize, or Keep." />
+                    <StepCard step="3" title="Take Smart Action" desc="Auto-tests pricing, flags losers, emails weekly wins." />
                 </div>
                 <div className="text-center mt-12">
-                    <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition">
+                    <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow transition">
                         <Link href="/waitlist">Join the Early Access List</Link>
                     </GhostButton>
                 </div>
@@ -102,7 +94,7 @@ export default function GhostSKULandingPage() {
                     />
                 </div>
                 <div className="mt-10">
-                    <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition">
+                    <GhostButton className="text-lg px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition">
                         <Link href='/waitlist'>Claim Your Spot – Free</Link>
                     </GhostButton>
                     <p className="text-sm text-gray-500 mt-2">Early bird pricing ends soon.</p>
@@ -120,24 +112,26 @@ export default function GhostSKULandingPage() {
 // --- Components ---
 function Feature({ title, description }) {
     return (
-        <div>
+        <div className="p-6 bg-white rounded-xl shadow hover:shadow-md transition">
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-700">{description}</p>
         </div>
     );
 }
 
-function PricingCard({
-    title,
-    price,
-    features,
-    highlight = false,
-}) {
+function StepCard({ step, title, desc }) {
     return (
-        <div
-            className={`border p-6 rounded-xl shadow bg-white transition transform hover:scale-105 ${highlight ? "border-blue-600 shadow-lg" : ""
-                }`}
-        >
+        <div className="p-6 bg-gray-50 rounded-xl border shadow-sm hover:shadow-md transition">
+            <div className="text-blue-600 font-bold text-lg mb-1">Step {step}</div>
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <p className="text-gray-600">{desc}</p>
+        </div>
+    );
+}
+
+function PricingCard({ title, price, features, highlight = false }) {
+    return (
+        <div className={`border p-6 rounded-xl shadow bg-white transition transform hover:scale-105 ${highlight ? "border-blue-600 shadow-lg" : ""}`}>
             <h3 className="text-2xl font-semibold mb-2">{title}</h3>
             <p className="text-xl text-blue-600 mb-4">{price}</p>
             <ul className="text-gray-700 space-y-2">
